@@ -1,123 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Sobre nós</title>
     <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
+    <style>
+        /* Centralizar conteúdo da página */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Estilos da seção "Quem somos" */
+        .quemsomos {
+            background-color: #f91d00;
+            color: whitesmoke;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #7289da;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .chat-button img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilos para o player de música */
+        audio {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
 
-      <!------ MENU -------> 
-  <header id="header" class="container header">
-    <nav class="menu nav">
-      <div class="divDaLogo">
-        <img src="assets/img/Logo-Ecommerce/logo_vermelha.png" alt="logo" class="logoEcommerce">
-      </div>
+    <div class="container">
+        <header>
+            <h1>Sobre a 952Store</h1>
+        </header>
 
-      <!-- MENU RESPONSIVO -->
-      <ul class="list menuMobile" id="menuMobile" role="menuMobile">
-        <li id="active-link-menu"><a href="/index.html">Home</a></li>
-        <li><a href="/produtos.html">Produtos</a></li>
-        <li><a href="sobrenos.html">Sobre-nós</a></li>
-      </ul>
+        <section class="quemsomos">
+            <h3>Quem somos</h3>
+            <p>Somos uma loja online dedicada a oferecer produtos de alta qualidade para nossos clientes. Nossa missão é garantir a melhor experiência de compra, com um atendimento atencioso e produtos selecionados com rigor.</p>
+            <p>Caso precise de suporte, contate-nos no nosso <a href="https://discord.gg/Zn3QJc5emH" target="_blank" style="color: #fff; text-decoration: underline;">Discord</a></p>
+        </section>
 
+        <a href="https://discord.gg/Zn3QJc5emH">
+            <div class="chat-button">
+                <img src="/assets/img/Logo-Ecommerce/discord.png" alt="Discord">
+            </div>
+        </a>
+        
+        <!-- Player de música (exemplo: tocando uma música do Racionais MCs) -->
+        <audio controls autoplay>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
     </div>
 
-    <div class="configs-menu">
-        <div class="config">
-          <a>
-            <i class="fas fa-shopping-bag" id="cart-btn"></i>
-            <p id="cont-itens-carrinho" class="sacolinhaDark"></p>
-          </a>
-        </div>
-    </div>
-  </header>
-
-  <div class="divMenuMobile">
-    <button class="btn-menu" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false" style="color: var(--important-color)">Menu<span class="hamburger"></span></button>
-  </div>
-
-  <!-- Seção de Sobre Nós -->
-  <section class="quemsomos">
-    <h3>Quem somos</h3>
-    <p>Somos uma loja online dedicada a oferecer produtos de alta qualidade para nossos clientes. Nossa missão é garantir a melhor experiência de compra, com um atendimento atencioso e produtos selecionados com rigor.</p>
-    <p>Caso precise de suporte, entre em contato conosco no nosso <a href="https://discord.gg/KNbXtvKuB8" target="_blank">Discord</a>.</p>
-  </section>
-
-  <style>
-    .quemsomos {
-        background-color: #f91d00;
-        color: whitesmoke;
-        padding: 20px;
-    }
-    .quemsomos a {
-        color: white;
-        text-decoration: underline;
-    }
-  </style>
-
-  <!-- Player de Música -->
-  <section class="music-player">
-    <div class="music-header">
-      <h2>Escute um pouco de Racionais MCs enquanto navega!</h2>
-      <p>Relaxe e curta a vibe do rap enquanto explora nossa loja.</p>
-    </div>
-    <div class="audio-player">
-      <audio controls>
-        <source src="https://www.youtube.com/watch?v=Xe8DN92jtbg" type="audio/mp3">
-        Seu navegador não suporta a tag de áudio.
-      </audio>
-    </div>
-  </section>
-
-  <style>
-    .music-player {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      margin-top: 20px;
-      text-align: center;
-    }
-    .audio-player {
-      margin-top: 10px;
-    }
-  </style>
-
-  <!-- Botão de Chat do Discord -->
-  <a href="https://discord.gg/Zn3QJc5emH" target="_blank">
-    <div class="chat-button">
-      <img src="/assets/img/Logo-Ecommerce/discord.png" alt="Discord">
-    </div>
-  </a>
-
-  <style>
-    .chat-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #7289da;
-        padding: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s;
-    }
-
-    .chat-button img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
-
-    .chat-button:hover {
-        transform: scale(1.1);
-    }
-  </style>
+    <script>
+        // Tocar a música automaticamente ao carregar a página
+        window.onload = function() {
+            document.querySelector('audio').play();
+        };
+    </script>
 
 </body>
 </html>
