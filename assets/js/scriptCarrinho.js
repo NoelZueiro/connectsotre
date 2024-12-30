@@ -1,424 +1,210 @@
-
-//objeto literal dos produtos que o site possui
-const products = {
-  0: {
-    nome: 'Nitro Gift Gaming',
-    desc: '✅ 1 mês ✅ Funciona em conta que ja teve nitro.',
-    valor: 14.50,
-    img: '<img src="/assets/img/pag-produtos/GIFTGAMING.png">',
-    qtd: 1
-  },
-
-  1: {
-    nome: "Nitro Trimesal",
-    desc: "NITRO 3 MESES PARA CONTAS COM MAIS DE 30 DIAS QUE NUNCA TIVERAM NITRO (NECESSITA DE ATIVAÇÃO).",
-    valor: 3.10,
-    img: '<img src="assets/img/pag-produtos/GIFTGAMING.png">',
-    qtd: 1
-  },
-
-  2: {
-    nome: "NIitro Mensal",
-    desc: "Nitro Link Promocional Nescesario cartão de credito para ativar Você não pode ter tido Nitro Precisa ser uma conta com mais de 30 dias Depois da entrega não nos responsabilizamos pelo produto",
-    valor: 0.10,
-    img: '<img src="/assets/img/pag-produtos/GIFTGAMING.png">',
-    qtd: 1
-  },
-
-  3: {
-    nome: "Nitro Gift Basic",
-    desc: "Compre ja nitro gift aceita em conta que ja teve nitro",
-    valor: 8.60,
-    img: '<img src="/assets/img/pag-produtos/GIFTGAMING.png">',
-    qtd: 1
-  },
-
-  4: {
-    nome: "Steam 50 a 500 jogos",
-    desc: "✅Steam de 50 a 500 Jogos",
-    valor: 4.70,
-    img: '<img src="/assets/img/pag-produtos/steam.webp">',
-    qtd: 1
-  },
-
-  5: {
-    nome: "Steam gta 5",
-    desc: "✅Steam com Grand Theft Auto V e Outros Jogos",
-    valor: 9.30,
-    img: '<img src="/assets/img/pag-produtos/gta4.webp">',
-    qtd: 1
-  },
-
-  6: {
-    nome: "Painel seguidores",
-    desc: "Painel seguidores peguie visualizacoes e seguidores",
-    valor: 3.10,
-    img: '<img src="/assets/img/pag-produtos/painelseguidores.webp">',
-    qtd: 1
-  },
-
-  7: {
-    nome: "Painel Sms",
-    desc: "sms consiga muitos sms",
-    valor: 3.00,
-    img: '<img src="/assets/img/pag-produtos/painelsms.webp">',
-    qtd: 1
-  },
-
-  8: {
-    nome: "Painel Tiktok",
-    desc: "Ganhe muitas view e seguidores no tiktok",
-    valor: 1.20,
-    img: '<img src="/assets/img/pag-produtos/tiktok.webp">',
-    qtd: 1
-  },
-  // PRODUTOS DA PAGINA DE PRODUTOS, COMEÇANDO DO 20
-  20: {
-    nome: "Painel do 7",
-    desc: "Explore mais sobre o 7 com um inicio super bom",
-    valor: 4.32,
-    img: '<img src="assets/img/pag-produtos/Notebook.png">',
-    qtd: 1
-  },
-  21: {
-    nome: "Minecraft full acesso",
-    desc: "Compre ja minecraft original full acesso",
-    valor: 6.13,
-    img: '<img src="/assets/img/pag-produtos/minecraft.webp">',
-    qtd: 1
-  },
-  22: {
-    nome: "Capa Optifine",
-    desc: "Compre a melhor capa op da atualidade",
-    valor: 3.24,
-    img: '<img src="/assets/img/pag-produtos/capaop.webp">',
-    qtd: 1
-  },
-  23: {
-    nome: "Robux Ifinito",
-    desc: "Compre robux infinitos e se dirvita",
-    valor: 5.79,
-    img: '<img src="/assets/img/pag-produtos/robux.jpeg">',
-    qtd: 1
-  },
-  24: {
-    nome: "Conta Nitrada 30 dias",
-    desc: "Compre melhor nitrada",
-    valor: 3.99,
-    img: '<img src="/assets/img/pag-produtos/nitada.webp">',
-    qtd: 1
-  },
-  25: {
-    nome: "METODO IFOOD",
-    desc: "Compre ja o metodo ifood",
-    valor: 3.10,
-    img: '<img src="assets/img/pag-produtos/metodoifood.png">',
-    qtd: 1
-  },
-  26: {
-    nome: "Source pack",
-    desc: "melhor da quebrada",
-    valor: 6.30,
-    img: '<img src="assets/img/pag-produtos/sourcepack.webp">',
-    qtd: 1
-  },
-  27: {
-    nome: "Conta netflix 1 ano",
-    desc: "Conta netflix a melhor",
-    valor: 5.99,
-    img: '<img src="assets/img/pag-produtos/netflix.webp">',
-    qtd: 1
-  },
-
-}
-
-//gera o objeto do id clicado no site
-class Product {
-  constructor(id) {
-    // desconstroi o objeto selecionado com o id, e gera variaveis individuais
-    const { nome,
-      desc,
-      valor,
-      img,
-      qtd
-    } = products[id]
-    //
-
-    //pega os valores individuais do objeto selecionado com base no id e coloca no objeto que vai ser gerado 
-    //posteriormente na funcao que é acionada ao clicar nos botes de compra
-
-    this.nome = nome
-    this.desc = desc
-    this.valor = valor
-    this.img = img
-    this.qtd = qtd
-  }
-}
-
-
-///////////////////////////////////////////////////////CLIQUE///////////////////////////////////////////////////////////
-
-//ao clicar em um dos botoes de compra, gera uma funcao
-document.querySelector('body').addEventListener('click', ({
-  target: {
-    dataset: {
-      produtoid: id
-    }
-  }
-}) => {
-  if ((id >= 0) &&
-    (id <= 100) && //Adicionando Quantidade de Produtos Que o site pode ter
-    (id != '')) {
-
-    if (localStorage.getItem('userLogado')) {
-      let idUserLogado = getIdUser()
-
-
-      const produto = new Product(id)
-
-      let cart = {} //cria o carrinho
-      if (Object.entries(JSON.parse(localStorage.getItem(`conta${idUserLogado}`))['cart']).length === 0) {
-        cart[id] = produto // se o carrinho for nulo, ele gera um carrinho novo
-
-      } else {
-        cart = JSON.parse(localStorage.getItem(`conta${idUserLogado}`)).cart // caso nao for, ele pega o carrinho ja gerado, 
-        // e so atribui o produto clicado
-
-        let possui = false //ja possui o produto no carrinho começa como falso
-
-        Object.keys(cart).forEach(el => {
-          if (el === id) {
-            possui = true // se o produto tiver no carrinho, possui vira true
-          }
-        })
-
-        if (!possui) { // se o produto ja tiver no carrinho, ele n vai adicionar, e me mostre um alert- Personalizado
-          cart[id] = produto
-        } else {
-          Swal.fire({
-            title: produto.nome,
-            text: 'produto ja foi adicionado no Carrinho',
-            confirmButtonColor: "#DD6B55",
-
-          })
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos e Carrinho</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
         }
 
-      }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
 
-      reajustarObjeto(cart) // salva o produto cart no localstorage 'cart'
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
 
-      setarValores(idUserLogado) // seta os valores
-    } else {
-      window.location.href = 'login-page.html'
-    }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
 
-  }
-})
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
 
+        .product-card h4 {
+            margin: 10px 0;
+        }
 
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+        }
 
+        .product-card button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 8px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
+        .product-card button:hover {
+            background-color: #e85d4c;
+        }
 
+        /* Carrinho */
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
 
+        .cart h4 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
 
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+        }
 
-////////////////////////////////////////////////////////FUNCOES//////////////////////////////////////////////////////////
+        .cart-items p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
 
-// formata o valor para R$
-const formatarValorRS = (valor) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format((valor).toFixed(2))
-}
+        .cart button {
+            background-color: #38a169;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-// seta o texto do carrinho, com base no parametro passado na funcao
-const setText = texto => {
-  document.querySelector('.cart-item').innerHTML = texto
-}
+        .cart button:hover {
+            background-color: #2f855a;
+        }
 
-// pega o texto, com base no objeto, e passa para um variavel para depois usa-la no setText()
-const getText = (id, {
-  nome,
-  desc,
-  valor,
-  img,
-  qtd
-}) => {
-  let texto = ` 
+        /* Preço total */
+        .total-price {
+            margin-top: 15px;
+            font-weight: bold;
+        }
 
-  <div id="item-estilizing" class="div${id}" >
-  
-    <header>
-      
-      <figure class="imageEfect" onclick='removerFromCart(${id})'>
-        ${img}
-        <div id="hoverEfectImage">
-        <i class="fas fa-trash-alt"></i>
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <!-- Exemplo de produto -->
+        <div class="product-card" data-produtoid="0">
+            <img src="/assets/img/pag-produtos/GIFTGAMING.png" alt="Nitro Gift Gaming">
+            <h4>Nitro Gift Gaming</h4>
+            <p>1 mês de Nitro</p>
+            <p>R$ 14,50</p>
+            <button>Adicionar ao Carrinho</button>
         </div>
-      </figure>
-      <figcaption>
-        <h6>${nome} </h6>
-        <p>${desc}</p>
-      </figcaption>
-    </header>
-    <li>
-      
-        <button class="btn plus" onclick="adicionarQtd(${id}, ${qtd})"> + </button>
-        <p> ${qtd} </p>
-        <button class="btn minus" onclick="removerQtd(${id}, ${qtd})"> - </button>
-      
-    </li>
-    <section>
-      <p> ${formatarValorRS((valor * qtd * 0.9))} <br /> <span style='color: red;'>10% OFF</span></p>
-    </section>
-  </div>`
+        <!-- Repita os blocos acima para outros produtos -->
+    </div>
 
-  return texto
-}
+    <!-- Carrinho -->
+    <div class="cart">
+        <h4>Carrinho</h4>
+        <div class="cart-items">
+            <p class="cart-item">Nenhum item no carrinho</p>
+        </div>
+        <div class="total-price">Subtotal: R$ 0,00</div>
+        <button id="btnFinalizarCarrinho">Finalizar Compra</button>
+    </div>
 
-// seta o total no carrinho
-const setTotal = (total) => document.querySelector('.total').innerHTML = total * 0.9 > 0
-  ?
-  `
-  <h2>Subtotal: <b>${formatarValorRS((total * 0.9))}</b> </h2>
-`
-  :
-  `
-  <h2>Subtotal: NENHUM ITEM ESCOLHIDO </h2>
-`
+    <script>
+        const products = {
+            0: {
+                nome: 'Nitro Gift Gaming',
+                desc: '✅ 1 mês ✅ Funciona em conta que ja teve nitro.',
+                valor: 14.50,
+                img: '/assets/img/pag-produtos/GIFTGAMING.png',
+                qtd: 1
+            },
+            // Adicione os outros produtos aqui
+        };
 
-// pega o valor e a quantidade, com base no objeto passado e multiplica eles entri si
-const getTotal = ({ valor, qtd }) => valor * qtd
+        // Função para adicionar produto ao carrinho
+        const adicionarAoCarrinho = (id) => {
+            const produto = products[id];
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
 
-//ele seta no documento, o numero de produtos no carrinho
-const setNumeroProdutos = numero => document.querySelector('#cont-itens-carrinho').innerHTML = numero > 0 ? numero : ''
+            // Adiciona o produto ao carrinho
+            if (!cart[id]) {
+                cart[id] = produto;
+            } else {
+                cart[id].qtd += 1; // Incrementa a quantidade
+            }
 
-//ele retorna o valor de produtos no carrinho com base no objeto passado como parametro
-const getNumeroProdutos = obj => Object.keys(obj).length
+            localStorage.setItem('cart', JSON.stringify(cart));
+            atualizarCarrinho();
+        };
 
-// ele seta os valores no documento, usando todas as outras funcoes acima
-const setarValores = (id) => {
-  let idUserLogado = getIdUser()
-  const cart = JSON.parse(localStorage.getItem(`conta${idUserLogado}`)).cart
+        // Função para atualizar o carrinho
+        const atualizarCarrinho = () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+            const cartItems = document.querySelector('.cart-items');
+            const totalPrice = document.querySelector('.total-price');
 
-  let texto = ''
+            cartItems.innerHTML = ''; // Limpa o conteúdo
 
-  Object.entries(cart).forEach(el => texto += getText(el[0], el[1]))
+            let subtotal = 0;
 
-  let total = 0
+            Object.keys(cart).forEach(id => {
+                const produto = cart[id];
+                const item = document.createElement('p');
+                item.textContent = `${produto.nome} - R$ ${produto.valor} x ${produto.qtd}`;
+                cartItems.appendChild(item);
+                subtotal += produto.valor * produto.qtd;
+            });
 
-  Object.entries(cart).forEach(el => total += getTotal(el[1]))
+            totalPrice.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
+        };
 
+        // Função para finalizar compra
+        document.querySelector('#btnFinalizarCarrinho').addEventListener('click', () => {
+            Swal.fire({
+                title: 'Finalize o pagamento',
+                text: 'Faça o pagamento para finalizar a compra.',
+                icon: 'info',
+                confirmButtonColor: '#DD6B55',
+            });
+        });
 
+        // Eventos de clique nos produtos
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = e.target.closest('.product-card').dataset.produtoid;
+                adicionarAoCarrinho(id);
+            });
+        });
 
-  let numero_de_produtos = getNumeroProdutos(cart)
-
-  setTotal(total)
-  setText(texto)
-  setNumeroProdutos(numero_de_produtos)
-}
-
-
-// na funcao getText() ele coloca um onclick nos botoes de remover e adicionar qtd do produto, e aqui, 
-// ele opera essas funcoes de remover() e adicionar()
-
-//remover qtd do produto selecionado
-const removerQtd = (id, qtd) => {
-  let idUserLogado = getIdUser()
-  let cart = JSON.parse(localStorage.getItem(`conta${idUserLogado}`)).cart
-
-  if (qtd === 1) {  //se a qtd do produto selecionad com base no id for 1, ele removera do objeto carrinho, 
-    delete cart[id]  //o produto em questao, e tambem removera do html
-    document.querySelector(`.div${id}`).remove()
-    reajustarObjeto(cart)
-
-  } else {
-    qtd--
-
-    cart[id].qtd = qtd
-
-    reajustarObjeto(cart)
-  }
-  setarValores(idUserLogado) // seta os valores atualizados
-}
-
-//adicionar qtd do produto selecionado, se atingir maior que 20 - Mostre-me um alert personalizado
-const adicionarQtd = (id, qtd) => {
-  let idUserLogado = getIdUser()
-  let cart = JSON.parse(localStorage.getItem(`conta${idUserLogado}`)).cart
-
-  if (qtd <= 19) { // ele trava e deixa adicionar qtd se o numero for 20, ate 19 ele deixa add mais 1, por isso 20
-    qtd++
-
-    cart[id].qtd = qtd
-
-    reajustarObjeto(cart)
-  } else {
-    Swal.fire({
-      title: 'Você atingiu a quantidade Maxima de produto em 1 objetivo',
-      width: 600,
-      padding: '3em',
-      color: '#E63946',
-      background: '#fff url(/images/trees.png)',
-      backdrop: `
-        rgba(#E63946)
-        url("/images/nyan-cat.gif")
-        left top
-        no-repeat
-      `,
-      confirmButtonColor: "#DD6B55"
-    })
-  }
-
-  setarValores(idUserLogado) // seta os valores atualizados
-}
-
-
-
-// carregamento da pagina //
-
-//ao carregar na janela, ele seta os valores 
-document.body.onload = () => {
-  let idUserLogado = getIdUser()
-  if (localStorage.getItem(`conta${idUserLogado}`) && Object.entries(JSON.parse(localStorage.getItem(`conta${idUserLogado}`)).cart).length != 0) { // ele apenas seta os valores, se o obj cart no localstorage n for nulo
-    // assim, evitando algum erro
-    setarValores(idUserLogado)
-  }
-}
-
-const getIdUser = () => {
-  for (let i = 1; i < localStorage.getItem('id'); i++) {
-    if (JSON.parse(localStorage.getItem(`conta${i}`)).e === localStorage.getItem('userLogado')) {
-      return i
-    }
-  }
-}
-
-const reajustarObjeto = (cart) => {
-  let idUserLogado = getIdUser()
-  const { e, s } = JSON.parse(localStorage.getItem(`conta${idUserLogado}`))
-
-  localStorage.setItem(`conta${idUserLogado}`, JSON.stringify({ e, s, cart }))
-}
-
-// Sistema de compras 
-const btnFinalizarCompras = document.querySelector("#btnFinalizarCarrinho")
-btnFinalizarCompras.addEventListener("click", function () {
-  Swal.fire({
-    title: 'Finalize o pagamento',
-    text: 'Faca o Pagamento Pix "a68b418a-58f8-428e-98c3-a93f5df6d7dc" no valor Correto senao nao o Produto nao ira ser enviado',
-    confirmButtonColor: "#DD6B55",
-    icon: 'question'
-
-  })
-})
-
-const removerFromCart = id => {
-  let idUserLogado = getIdUser()
-  let cart = JSON.parse(localStorage.getItem(`conta${idUserLogado}`)).cart
-  delete cart[id]
-  document.querySelector(`.div${id}`).remove()
-  reajustarObjeto(cart)
-  setarValores(id)
-}
+        // Carrega o carrinho ao iniciar a página
+        document.body.onload = atualizarCarrinho;
+    </script>
+</body>
+</html>
