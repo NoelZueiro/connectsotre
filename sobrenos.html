@@ -7,52 +7,93 @@
     <title>Sobre nós</title>
     <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
     <style>
-        /* Centralizar conteúdo da página */
+        /* Resetando margem e preenchimento */
         body, html {
             height: 100%;
             margin: 0;
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
+            background-image: url('https://images.unsplash.com/photo-1532589832074-3e423a8c67b7'); /* Imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
+        /* Container principal */
         .container {
             max-width: 1200px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            width: 100%;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo semitransparente */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
-        /* Estilos da seção "Quem somos" */
+        /* Estilo do título principal */
+        header h1 {
+            font-size: 2.5rem;
+            color: #f91d00;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Estilo da seção "Quem somos" */
         .quemsomos {
             background-color: #f91d00;
             color: whitesmoke;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
         }
 
+        .quemsomos:hover {
+            transform: scale(1.05); /* Efeito de hover */
+        }
+
+        .quemsomos h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .quemsomos p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Link estilizado dentro da seção "Quem somos" */
+        .quemsomos a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* Estilo do botão de chat */
         .chat-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background-color: #7289da;
-            padding: 10px;
+            padding: 15px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
+            transition: transform 0.3s ease-in-out;
         }
 
         .chat-button img {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
         }
 
@@ -63,7 +104,7 @@
         /* Estilos para o player de música */
         audio {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -73,13 +114,13 @@
 
     <div class="container">
         <header>
-            <h1>Sobre a 952Store</h1>
+            <h1>Sobre a 925Store</h1>
         </header>
 
         <section class="quemsomos">
             <h3>Quem somos</h3>
             <p>Somos uma loja online dedicada a oferecer produtos de alta qualidade para nossos clientes. Nossa missão é garantir a melhor experiência de compra, com um atendimento atencioso e produtos selecionados com rigor.</p>
-            <p>Caso precise de suporte, contate-nos no nosso <a href="https://discord.gg/Zn3QJc5emH" target="_blank" style="color: #fff; text-decoration: underline;">Discord</a></p>
+            <p>Caso precise de suporte, contate-nos no nosso <a href="https://discord.gg/Zn3QJc5emH" target="_blank">Discord</a></p>
         </section>
 
         <a href="https://discord.gg/Zn3QJc5emH">
@@ -87,7 +128,7 @@
                 <img src="/assets/img/Logo-Ecommerce/discord.png" alt="Discord">
             </div>
         </a>
-        
+
         <!-- Player de música (exemplo: tocando uma música do Racionais MCs) -->
         <audio controls autoplay>
             <source src="https://www.youtube.com/watch?v=Xe8DN92jtbg" type="audio/mp3">
