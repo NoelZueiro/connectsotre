@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Sobre nos</title>
+    <title>Sobre nós</title>
     <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
 </head>
 <body>
-      <!------ MENU ------->
+
+      <!------ MENU -------> 
   <header id="header" class="container header">
     <nav class="menu nav">
       <div class="divDaLogo">
         <img src="assets/img/Logo-Ecommerce/logo_vermelha.png" alt="logo" class="logoEcommerce">
       </div>
 
-      <!-- MENU RESPONSIVO DENTRO DO HAMBURGUE -->
-      <ul class='list menuMobile' id="menuMobile" role="menuMobile">
+      <!-- MENU RESPONSIVO -->
+      <ul class="list menuMobile" id="menuMobile" role="menuMobile">
         <li id="active-link-menu"><a href="/index.html">Home</a></li>
         <li><a href="/produtos.html">Produtos</a></li>
         <li><a href="sobrenos.html">Sobre-nós</a></li>
@@ -24,199 +25,74 @@
 
     </div>
 
-
     <div class="configs-menu">
-        <!---- SCROLL ABRE FECHA CARRINHO ---->
         <div class="config">
           <a>
             <i class="fas fa-shopping-bag" id="cart-btn"></i>
-            <!-- Total de itens na sacolinha do carrinho -->
             <p id="cont-itens-carrinho" class="sacolinhaDark"></p>
           </a>
         </div>
-
-        <!--ABERTURA DA DIV SISTEMA DE CARRINHO -->
-        <div class="cardCarrinho-container" id="meuCarrinho">
-
-          <section class="box-cart">
-
-            <section class="description">
-
-              <div class="produtos" style="width: 45%;">
-                <p>Produtos</p>
-              </div>
-
-              <div style="width: 30%;">
-                <p>Quantidade</p>
-              </div>
-
-              <div style="width: 20%;">
-                <p>Preço</p>
-              </div>
-
-            </section>
-            <!-- Abertura da div cart-item -->
-            <div class="cart-item">
-
-              <!-- Fechamento da div cart-item -->
-            </div>
-
-            <span id="totalFinal" class="total">
-              <h2> Nenhum item escolhido </h2>
-            </span>
-
-            <button id="btnFinalizarCarrinho">
-              <h2>Comprar</h2>
-            </button>
-
-          </section>
-        </div>
-
-    <!-- Email do usuario CONFIG -->
-    <span id="user-email"></span>
-
-    <!---- OPEN CONFIG ---->
-
-    <div style="width: 18%;" class="config">
-      <button type="button" onclick="Mudarestado('openConfig')">
-        <a><i class="fas fa-cog"></i></a>
-      </button>
     </div>
+  </header>
 
-    <!--Abertura da Div openConfig-->
-    <div id="openConfig" class="btn-config">
-
-      <ul id="ul-OpenConfig">
-
-        <li>
-          <p>Minha Conta</p>
-        </li>
-
-        <li>
-          <p>Pagamentos</p>
-        </li>
-
-        <li>
-          <p>Direitos</p>
-        </li>
-
-        <!-- Config Tema Dark & Light -->
-        <!--Abertura da Div ul-OpenConfig-->
-        <div class="ul-OpenConfig">
-          <input type="checkbox" name="chenge-theme" id="chenge-theme" />
-          <label for="chenge-theme">
-
-            <li id="btn-theme">
-
-              <p>Tema</p>
-
-              <i class="bi bi-sun">
-                <p>Light</p>
-              </i>
-
-              <i class="bi bi-moon">
-                <p>Dark</p>
-              </i>
-
-            </li>
-
-          </label>
-
-          <!--Fechamento da Div ul-OpenConfig-->
-        </div>
-
-        <li>
-          <p>Feedbacks</p>
-        </li>
-
-        <span id='li-sair'></span>
-      </ul>
-
-      <!--Fechamento da Div openConfig-->
-    </div>
-
-    <!--ABERTURA DA DIV SISTEMA DE CARRINHO -->
+  <div class="divMenuMobile">
+    <button class="btn-menu" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false" style="color: var(--important-color)">Menu<span class="hamburger"></span></button>
   </div>
 
-</nav>
-
-</header>
-
- <!-- SISTEMA DE MENU RESPONSIVEL -->
- <div class="divMenuMobile">
-    <button class="btn-menu" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false"
-      style="color: var(--important-color)">Menu<span class="hamburger"></span>
-    </button>
-  </div>
-
-
-
-
-
-
-  <!---------- CATEGORIAS ---------->
-  <section class="categories">
-    <div class="titles-page">
-      <h5>Navegue entre as categorias</h5>
-    </div>
-    <div class="scrolling-wrapper">
-      <div class="box">
-        <div>
-          <i class="fa-solid fa-shirt"></i>
-        </div>
-        <p>Melhor Produtos</p>
-      </div>
-      <div class="box">
-        <div>
-          <i class="fa-solid fa-volleyball"></i>
-        </div>
-        <p>Melhor Suporte</p>
-      </div>
-      <div class="box">
-        <div>
-          
-        </div>
-        <p>Melhores descontos</p>
-      </div>
-      <div class="box">
-        <div>
-          <i class="fa-solid fa-headphones-simple"></i>
-        </div>
-        <p>Melhores Precos</p>
-      </div>
-      <div class="box">
-        <div>
-          <i class="fa-solid fa-chair"></i>
-        </div>
-        <p>Seguraca</p>
-      </div>
-    </div>
-
+  <!-- Seção de Sobre Nós -->
+  <section class="quemsomos">
+    <h3>Quem somos</h3>
+    <p>Somos uma loja online dedicada a oferecer produtos de alta qualidade para nossos clientes. Nossa missão é garantir a melhor experiência de compra, com um atendimento atencioso e produtos selecionados com rigor.</p>
+    <p>Caso precise de suporte, entre em contato conosco no nosso <a href="https://discord.gg/Zn3QJc5emH" target="_blank">Discord</a>.</p>
   </section>
 
-  <div class="quemsomos">
-    <section>
-        <h3>Quem somos</h3>
-        <p>Somos uma loja online dedicada a oferecer produtos de alta qualidade para nossos clientes. Nossa missão é garantir a melhor experiência de compra, com um atendimento atencioso e produtos selecionados com rigor.</p>
-        <p>Caso Suporte Contate-nos no discord</p>
+  <style>
+    .quemsomos {
+        background-color: #f91d00;
+        color: whitesmoke;
+        padding: 20px;
+    }
+    .quemsomos a {
+        color: white;
+        text-decoration: underline;
+    }
+  </style>
 
-    </section>
-    <style>
-        .quemsomos {
-            background-color: #f91d00;
-            color: whitesmoke;
-            padding: 20px;
-            
-        }
-    </style>
+  <!-- Player de Música -->
+  <section class="music-player">
+    <div class="music-header">
+      <h2>Escute um pouco de Racionais MCs enquanto navega!</h2>
+      <p>Relaxe e curta a vibe do rap enquanto explora nossa loja.</p>
+    </div>
+    <div class="audio-player">
+      <audio controls>
+        <source src="https://www.example.com/musica-racionais.mp3" type="audio/mp3">
+        Seu navegador não suporta a tag de áudio.
+      </audio>
+    </div>
+  </section>
 
-<a href="https://discord.gg/Zn3QJc5emH">
-  <div class="chat-button">
-    <img src="/assets/img/Logo-Ecommerce/discord.png" alt="Discord">
-</div>
-</a>
-<style>
-    /* Estilo do botão de chat */
+  <style>
+    .music-player {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .audio-player {
+      margin-top: 10px;
+    }
+  </style>
+
+  <!-- Botão de Chat do Discord -->
+  <a href="https://discord.gg/Zn3QJc5emH" target="_blank">
+    <div class="chat-button">
+      <img src="/assets/img/Logo-Ecommerce/discord.png" alt="Discord">
+    </div>
+  </a>
+
+  <style>
     .chat-button {
         position: fixed;
         bottom: 20px;
@@ -232,19 +108,16 @@
         transition: transform 0.2s;
     }
 
-    /* Estilo para a imagem dentro do botão */
     .chat-button img {
-        width: 30px;  /* Ajuste o tamanho da imagem conforme necessário */
+        width: 30px;
         height: 30px;
         border-radius: 50%;
     }
 
-    /* Efeito de hover para o botão */
     .chat-button:hover {
         transform: scale(1.1);
     }
-</style>
+  </style>
 
-</div>
 </body>
 </html>
